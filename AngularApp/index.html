@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>Angular App</title>
+  <script src="Libs/angular.min.js"></script>
+  <script src="Libs/angular-route.js"></script>
+  <script src="app.js"></script>
+  <script src="config.js"></script>
+  <script src="Controllers/CourseController.js"></script>
+  <script src="Controllers/EmployeeController.js"></script>
+  <script src="Controllers/StudentController.js"></script>
+  <script src="Controllers/fupController.js"></script>
+  <script src="Filters/gender.js"></script>
+  <script src="Services/OrgService.js"></script>
+  <script src="Services/globals.js"></script>
+  <link rel="stylesheet" href="Libs/bootstrap.min.css">
+  <script src="Libs/jquery.min.js"></script>
+  <script src="Libs/bootstrap.min.js"></script>
+  <style>
+    .checked {
+      color: red;
+      background-color: yellow;
+    }
+
+    .unchecked {
+      color: white;
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <div ng-controller="homeController" ng-init="init()">
+      <table style="width:100%">
+        <tr>
+          <td>
+            <h4>
+              {{message}}
+            </h4>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <ng-view></ng-view>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div>
+  </div>
+</body>
+</html>

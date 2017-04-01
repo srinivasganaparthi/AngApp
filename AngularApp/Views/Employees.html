@@ -1,0 +1,97 @@
+﻿<div ng-controller="employeeController" ng-init="init()">
+   <table class="table">
+     <tr>
+       <td style="width:10%;border-right:1px solid silver !important">
+         <menu-directive></menu-directive>
+       </td>
+       <td>
+         <div>
+           <div ng-show="!addEmployee"><input type="button" value="Add Employee" ng-click="addEmployee = !addEmployee" /></div>
+           <br />
+           <table class="table" ng-show="addEmployee">
+             <tr>
+               <td>
+                 Name
+               </td>
+               <td>
+                 <input type="text" ng-model="employee.name" />
+               </td>
+             </tr>
+             <tr>
+               <td>
+                 Gender
+               </td>
+               <td>
+                 <input type="checkbox" ng-model="employee.gender" />
+               </td>
+             </tr>
+             <tr>
+               <td>
+                 Salary
+               </td>
+               <td>
+                 <input type="text" ng-model="employee.salary" />
+               </td>
+             </tr>
+             <tr>
+               <td>
+                 DOB
+               </td>
+               <td>
+                 <input type="date" ng-model="employee.dateOfBirth" />
+               </td>
+             </tr>
+             <tr>
+               <td>
+                 City
+               </td>
+               <td>
+                 <input type="text" ng-model="employee.city" />
+               </td>
+             </tr>
+             <tr>
+               <td colspan="2">
+                 <input type="button" value="Save" ng-click="SaveEmployee()" />
+                 <input type="button" value="Cancel" ng-click="addEmployee = !addEmployee" />
+               </td>
+             </tr>
+           </table>
+           <div ng-show="!addEmployee">
+             <input type="text" class="form-control" ng-model="searchText" placeholder="search employees" /> <br />
+             <table class="table">
+               <tr>
+                 <th ng-click="SortData('name')">
+                   Name
+                 </th>
+                 <th ng-click="SortData('dateOfBirth')">
+                   DOB
+                 </th>
+                 <th ng-click="SortData('gender')">
+                   Gender
+                 </th>
+                 <th ng-click="SortData('salary')">
+                   Salary
+                 </th>
+                 <th ng-click="SortData('city')">
+                   City
+                 </th>
+                 <th>
+                   Action
+                 </th>
+               </tr>
+               <tr ng-repeat="employee in employees | filter : searchText | orderBy:SortColumn">
+                 <td> {{ employee.name | uppercase}} </td>
+                 <td> {{ employee.dateOfBirth | date : "dd/MMMM/yyyy"}} </td>
+                 <td> {{ employee.gender | gender}} </td>
+                 <td> {{ employee.salary | currency : "£" : 1}} </td>
+                 <td> {{ employee.city | lowercase}}</td>
+                 <td> <input type="button" ng-click="EditEmployee(employee)" value="Edit" /></td>
+               </tr>
+             </table>
+           </div>
+         </div>
+       </td>
+     </tr>
+   </table>
+  </div>
+ 

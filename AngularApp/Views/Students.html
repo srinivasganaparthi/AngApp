@@ -1,0 +1,83 @@
+﻿<div ng-controller="studentsController" ng-init="init()">
+  <table class="table">
+    <tr>
+      <td style="width:10%;border-right:1px solid silver !important">
+        <menu-directive></menu-directive>
+      </td>
+      <td>
+        <div>
+          <div>
+            <div ng-show="!addStudent">
+              <input type="button" value="Add Student" ng-click="addStudent = !addStudent">
+              <br /><br />
+            </div>
+            <table class="table" ng-show="addStudent">
+              <tr>
+                <td>
+                  Name
+                </td>
+                <td>
+                  <input type="text" ng-model="student.name" />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Gener
+                </td>
+                <td>
+                  <input type="checkbox" ng-model="student.gender" />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  City
+                </td>
+                <td>
+                  <input type="text" ng-model="student.city" />
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <input type="button" value="Save" ng-click="saveStudent();">
+                  <input type="button" value="Cancel" ng-click="addStudent = !addStudent">
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div ng-show="!addStudent">
+            <table class="table">
+              <tr>
+                <th>
+                  Name
+                </th>
+                <th>
+                  Gender
+                </th>
+                <th>
+                  City
+                </th>
+                <th>
+                  Action
+                </th>
+              </tr>
+              <tr ng-repeat="student in students">
+                <td>
+                  {{student.name}}
+                </td>
+                <td>
+                  {{student.gender}}
+                </td>
+                <td>
+                  {{student.city}}
+                </td>
+                <td>
+                  <input type="button" value="Edit" ng-click="EditStudent(student);" />
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>

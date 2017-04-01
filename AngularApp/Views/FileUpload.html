@@ -1,0 +1,25 @@
+﻿<div ng-controller="fupController">
+  <table class="table">
+    <tr>
+      <td style="width:10%;border-right:1px solid silver !important">
+        <menu-directive></menu-directive>
+      </td>
+      <td>
+        <div>
+
+          <!--<input type="file" id="file" name="file" multiple
+                 onchange="angular.element(this).scope().getFileDetails(this)" />
+
+          <input type="button" ng-click="uploadFiles()" value="Upload" />-->
+          <input type="file" id="file" name="file" multiple
+                 onchange="angular.element(this).scope().getFileDetails(this)" />
+
+          <input type="button" ng-click="uploadFiles()" value="Upload" />
+
+          <!--ADD A PROGRESS BAR ELEMENT.-->
+          <p><progress id="pro" value="0"></progress></p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>

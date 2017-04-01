@@ -1,0 +1,41 @@
+﻿<div ng-controller="coursesController" ng-init="init()">
+  <table class="table">
+    <tr>
+      <td style="width:10%;border-right:1px solid silver !important">
+        <menu-Directive></menu-Directive>
+      </td>
+      <td>
+        <div>
+          <div ng-show="!addCourse"> <input type="button" value="Add Course" ng-click="addCourse = !addCourse" /></div>
+          <br />
+          <table class="table" ng-show="addCourse">
+            <tr>
+              <td>
+                Course
+              </td>
+              <td>
+                <input type="text" ng-model="course.name" />
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <input type="button" value="Save" ng-click="SaveCourse();" />
+                <input type="button" value="Cancel" ng-click="addCourse = !addCourse" />
+              </td>
+            </tr>
+          </table>
+
+          <div ng-show="!addCourse">
+            <ul>
+              <li ng-repeat="course in courses">
+                {{course.name}}
+              </li>
+            </ul>
+          </div>
+          
+        </div>
+      </td>
+    </tr>
+  </table>
+  </div>
+ 
